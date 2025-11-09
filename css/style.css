@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #009E0B;
+}
+
+table {
+    padding: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table td {
+    width: 9vmin;
+    height: 9vmin;
+    border: 1px solid black;
+    padding: 0;
+}
+
+img {
+    width: 9vmin;
+    height: 9vmin;
+    display: flex;
+}
+
+.start{
+    color: white;
+}
+
+.border-none {
+    border: none;
+}
+
+.remove-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
