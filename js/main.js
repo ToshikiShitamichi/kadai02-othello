@@ -52,6 +52,7 @@ function turn_change() { //ターン交代
 }
 
 function placeble() { // 石を置ける場所を表示
+    $(".placeble").remove();
     if ((turn == "player" && player_color == "black") || (turn == "cpu" && player_color == "white")) {
         for (let i = 1; i < 9; i++) {
             for (let j = 1; j < 9; j++) {
@@ -475,10 +476,12 @@ placeble()
 
 // 3.石を置く
 $(document).on("click", ".placeble", function () {
-    const select_squares = $(this).parent().attr("id");
+    let select_squares = $(this).parent().attr("id");
     if ((turn == "player" && player_color == "black") || (turn == "cpu" && player_color == "white")) {
+        $("#" + select_squares).addClass("black");
         $("#" + select_squares).html('<img src="./img/black.png">');
     } else if ((turn == "player" && player_color == "white") || (turn == "cpu" && player_color == "black")) {
+        $("#" + select_squares).addClass("white");
         $("#" + select_squares).html('<img src="./img/white.png">');
     }
     turn_change();

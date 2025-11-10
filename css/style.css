@@ -21,9 +21,8 @@ table td {
 }
 
 img {
-    width: 9vmin;
-    height: 9vmin;
-    display: flex;
+    width: 8vmin;
+    height: 8vmin;
 }
 
 .start{
