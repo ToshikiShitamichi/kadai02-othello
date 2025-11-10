@@ -17,6 +17,7 @@ table td {
     height: 9vmin;
     border: 1px solid black;
     padding: 0;
+    pointer-events: none;
 }
 
 img {
@@ -31,6 +32,11 @@ img {
 
 .border-none {
     border: none;
+}
+
+.placeble{
+    color: rgb(200, 200, 200);
+    pointer-events: all;
 }
 
 .remove-scrolling {
