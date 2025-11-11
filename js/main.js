@@ -49,6 +49,7 @@ function turn_change() { //ターン交代
         }
     }
     $("#turn").text(turn_msg);
+    placeble();
 }
 
 // 1.先攻後攻決め
@@ -109,6 +110,13 @@ $(document).on("click", ".placeble", function () {
             location.reload()
         }
     }
+
+    // 6.ターン変更
     turn_change();
-    placeble();
+
+    // 7.パス判定
+    if ($(".placeble").length == 0) {
+        $("#turn").text("パス")
+        setTimeout(() => turn_change(), 2000)
+    }
 });
