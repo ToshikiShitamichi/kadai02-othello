@@ -9,9 +9,9 @@
 // 5.終了判定
 // ・盤面がすべて埋まっている
 // ・全部同じ色になっている
-// 6.パス判定
+// 6.ターン変更
+// 7.パス判定
 // ・石を置ける箇所が存在しない
-// 7.ターン変更
 
 // 変数定義
 let turn //現在のターン
@@ -96,6 +96,19 @@ $(document).on("click", ".placeble", function () {
     $("#black-score").text(": " + black_score);
     $("#white-score").text(": " + white_score);
 
+    // 5.終了判定
+    if ((black_score + white_score == 64) || (black_score == 0 || white_score == 0)) {
+        if (((player_color == "black") && (black_score > white_score)) || ((player_color == "white") && (white_score > black_score))) {
+            alert("あなたの勝ち！")
+            location.reload()
+        } else if (((player_color == "black") && (white_score > black_score)) || ((player_color == "white") && (black_score > white_score))) {
+            alert("あなたの負け")
+            location.reload()
+        } else {
+            alert("引き分け")
+            location.reload()
+        }
+    }
     turn_change();
     placeble();
 });
