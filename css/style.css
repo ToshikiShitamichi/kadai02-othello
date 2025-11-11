@@ -25,15 +25,27 @@ img {
     height: 8vmin;
 }
 
-.start{
+.start {
     color: white;
+}
+
+#score{
+    display: flex;
+    justify-content: space-around;
+}
+
+#score img {
+    width: 3vmin;
+    height: 3vmin;
 }
 
 .border-none {
     border: none;
+    width: 3vmin;
+    height: 3vmin;
 }
 
-.placeble{
+.placeble {
     color: rgb(200, 200, 200);
     pointer-events: all;
 }
