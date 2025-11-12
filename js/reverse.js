@@ -165,7 +165,7 @@ function reverse(j, i) {
                 } else if ($("#" + (k) + "-" + (l)).children()[0] == null) { //石なし
                     break;
                 } else if ($("#" + (k) + "-" + (l)).attr("class") == "white") {
-                        ;
+                    ;
                 } else if ($("#" + (k) + "-" + (l)).attr("class") == "black") {
                     let k = j - 1
                     let l = i + 1
@@ -249,7 +249,6 @@ function reverse(j, i) {
             }
         }
     } else if ((turn == "player" && player_color == "white") || (turn == "cpu" && player_color == "black")) {
-
         // 左上
         if ($("#" + (j - 1) + "-" + (i - 1)).attr("class") == "black") {
             let k = j - 1

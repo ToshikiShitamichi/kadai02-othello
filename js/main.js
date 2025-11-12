@@ -54,8 +54,49 @@ function turn_change() { //ターン交代
     // 7.パス判定
     if ($(".placeble").length == 0) {
         $("#turn").text("パス")
-        setTimeout(() => turn_change(), 2000)
+        turn_change()
     }
+
+    //CPUの手
+    if (turn == "cpu") {
+        let cpu_hand = cpu_turn()
+        place_stone(cpu_hand[0], cpu_hand[1])
+    }
+}
+
+function place_stone(j, i) {
+    if ((turn == "player" && player_color == "black") || (turn == "cpu" && player_color == "white")) {
+        $("#" + j + "-" + i).addClass("black");
+        $("#" + j + "-" + i).html('<img src="./img/black.png">');
+    } else if ((turn == "player" && player_color == "white") || (turn == "cpu" && player_color == "black")) {
+        $("#" + j + "-" + i).addClass("white");
+        $("#" + j + "-" + i).html('<img src="./img/white.png">');
+    }
+
+    // 4.石をひっくり返す
+    reverse(j, i);
+
+    let black_score = $(".black").length
+    let white_score = $(".white").length
+    $("#black-score").text(": " + black_score);
+    $("#white-score").text(": " + white_score);
+
+    // 5.終了判定
+    if ((black_score + white_score == 64) || (black_score == 0 || white_score == 0)) {
+        if (((player_color == "black") && (black_score > white_score)) || ((player_color == "white") && (white_score > black_score))) {
+            setTimeout(() => alert("あなたの勝ち！"), 1000)
+            return false
+        } else if (((player_color == "black") && (white_score > black_score)) || ((player_color == "white") && (black_score > white_score))) {
+            setTimeout(() => alert("あなたの負け"), 1000)
+            return false
+        } else {
+            setTimeout(() => alert("引き分け"), 1000)
+            return false
+        }
+    }
+
+    // 6.ターン変更
+    turn_change();
 }
 
 // 1.先攻後攻決め
@@ -87,37 +128,5 @@ placeble()
 // 3.石を置く
 $(document).on("click", ".placeble", function () {
     let select_squares = $(this).parent().attr("id");
-    if ((turn == "player" && player_color == "black") || (turn == "cpu" && player_color == "white")) {
-        $("#" + select_squares).addClass("black");
-        $("#" + select_squares).html('<img src="./img/black.png">');
-    } else if ((turn == "player" && player_color == "white") || (turn == "cpu" && player_color == "black")) {
-        $("#" + select_squares).addClass("white");
-        $("#" + select_squares).html('<img src="./img/white.png">');
-    }
-
-    // 4.石をひっくり返す
-    reverse(Number(select_squares.slice(0, 1)), Number(select_squares.slice(2, 3)));
-
-    let black_score = $(".black").length
-    let white_score = $(".white").length
-    $("#black-score").text(": " + black_score);
-    $("#white-score").text(": " + white_score);
-
-    // 5.終了判定
-    if ((black_score + white_score == 64) || (black_score == 0 || white_score == 0)) {
-        if (((player_color == "black") && (black_score > white_score)) || ((player_color == "white") && (white_score > black_score))) {
-            alert("あなたの勝ち！")
-            location.reload()
-        } else if (((player_color == "black") && (white_score > black_score)) || ((player_color == "white") && (black_score > white_score))) {
-            alert("あなたの負け")
-            location.reload()
-        } else {
-            alert("引き分け")
-            location.reload()
-        }
-    }
-
-    // 6.ターン変更
-    turn_change();
-
+    place_stone(Number(select_squares.slice(0, 1)), Number(select_squares.slice(2, 3)))
 });
