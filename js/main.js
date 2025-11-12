@@ -18,6 +18,7 @@ let turn //現在のターン
 let turn_msg //ターン表示テキスト
 let player_color //プレイヤーの石
 let cpu_hand = []
+let end_flg = false
 
 // 関数定義
 function turn_change() { //ターン交代
@@ -63,6 +64,9 @@ function turn_change() { //ターン交代
         setTimeout(() => {
             cpu_turn()
             place_stone(cpu_hand[0], cpu_hand[1])
+            if (end_flg) {
+                return
+            }
         }, 500)
     }
 }
@@ -88,12 +92,18 @@ function place_stone(j, i) {
     if ((black_score + white_score == 64) || (black_score == 0 || white_score == 0)) {
         if (((player_color == "black") && (black_score > white_score)) || ((player_color == "white") && (white_score > black_score))) {
             alert("あなたの勝ち！")
+            $("#score").html('<span><img src="./img/black.png" alt=""><span id="black-score">: ' + black_score + '</span></span><span><img src="./img/white.png" alt=""><span id="white-score">: ' + white_score + '</span></span><button id="restart">再試合</button>');
+            end_flg = true
             return
         } else if (((player_color == "black") && (white_score > black_score)) || ((player_color == "white") && (black_score > white_score))) {
             alert("あなたの負け")
+            $("#score").html('<span><img src="./img/black.png" alt=""><span id="black-score">: ' + black_score + '</span></span><span><img src="./img/white.png" alt=""><span id="white-score">: ' + white_score + '</span></span><button id="restart">再試合</button>');
+            end_flg = true
             return
         } else {
             alert("引き分け")
+            $("#score").html('<span><img src="./img/black.png" alt=""><span id="black-score">: ' + black_score + '</span></span><span><img src="./img/white.png" alt=""><span id="white-score">: ' + white_score + '</span></span><button id="restart">再試合</button>');
+            end_flg = true
             return
         }
     }
@@ -131,4 +141,11 @@ $(".start button").on("click", function () {
 $(document).on("click", ".placeble", function () {
     let select_squares = $(this).parent().attr("id");
     place_stone(Number(select_squares.slice(0, 1)), Number(select_squares.slice(2, 3)))
+    if (end_flg) {
+        return
+    }
+});
+
+$(document).on("click", "#restart", function () {
+    location.reload()
 });
