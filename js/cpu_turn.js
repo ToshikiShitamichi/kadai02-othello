@@ -2,7 +2,7 @@ function cpu_turn() {
     let placeble_lst = { 8: "", 7: "", 6: "", 5: "", 4: "", 3: "", 2: "", 1: "", "yellow": "", "red": "" }
     for (let i = 1; i < 9; i++) {
         for (let j = 1; j < 9; j++) {
-            if ($("#" + (j) + "-" + (i)).children().attr("class") != "placeble") {
+            if ($("#" + (j) + "-" + (i)).children().attr("class") != "placeble-cpu") {
                 continue
             }
 
@@ -16,7 +16,8 @@ function cpu_turn() {
                     $("#" + (j) + "-" + (i)).html('<img src="./img/black.png">')
 
                 }
-                return [j, i];
+                cpu_hand = [j, i];
+                return
 
             } else {
                 let placeble_count = 0
@@ -94,5 +95,6 @@ function cpu_turn() {
         $("#" + (select_squares.slice(0, 1)) + "-" + (select_squares.slice(2, 3))).html('<img src="./img/black.png">')
 
     }
-    return [Number(select_squares.slice(0, 1)), Number(select_squares.slice(2, 3))];
+    cpu_hand = [Number(select_squares.slice(0, 1)), Number(select_squares.slice(2, 3))];
+    return
 }

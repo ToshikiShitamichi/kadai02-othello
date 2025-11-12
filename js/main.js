@@ -17,6 +17,7 @@
 let turn //現在のターン
 let turn_msg //ターン表示テキスト
 let player_color //プレイヤーの石
+let cpu_hand = []
 
 // 関数定義
 function turn_change() { //ターン交代
@@ -52,15 +53,17 @@ function turn_change() { //ターン交代
     placeble();
 
     // 7.パス判定
-    if ($(".placeble").length == 0) {
+    if ($(".placeble").length == 0 && $(".placeble-cpu").length == 0) {
         $("#turn").text("パス")
-        turn_change()
+        setTimeout(() => turn_change(), 500)
     }
 
     //CPUの手
     if (turn == "cpu") {
-        let cpu_hand = cpu_turn()
-        place_stone(cpu_hand[0], cpu_hand[1])
+        setTimeout(() => {
+            cpu_turn()
+            place_stone(cpu_hand[0], cpu_hand[1])
+        }, 500)
     }
 }
 
@@ -84,17 +87,16 @@ function place_stone(j, i) {
     // 5.終了判定
     if ((black_score + white_score == 64) || (black_score == 0 || white_score == 0)) {
         if (((player_color == "black") && (black_score > white_score)) || ((player_color == "white") && (white_score > black_score))) {
-            setTimeout(() => alert("あなたの勝ち！"), 1000)
-            return false
+            alert("あなたの勝ち！")
+            return
         } else if (((player_color == "black") && (white_score > black_score)) || ((player_color == "white") && (black_score > white_score))) {
-            setTimeout(() => alert("あなたの負け"), 1000)
-            return false
+            alert("あなたの負け")
+            return
         } else {
-            setTimeout(() => alert("引き分け"), 1000)
-            return false
+            alert("引き分け")
+            return
         }
     }
-
     // 6.ターン変更
     turn_change();
 }
@@ -103,8 +105,8 @@ function place_stone(j, i) {
 $("body").addClass("remove-scrolling");
 $(".content").hide();
 $(".start button").on("click", function () {
-    $(".start").fadeOut(1000);
-    $(".content").delay(1000).fadeIn(500);
+    $(".start").fadeOut(500);
+    $(".content").delay(500).fadeIn(500);
     $("body").removeClass("remove-scrolling");
 
     turn = $(this).attr("id")

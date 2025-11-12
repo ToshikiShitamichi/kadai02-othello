@@ -1,5 +1,5 @@
 function placeble() { // 石を置ける場所を表示
-    $(".placeble").remove();
+    $(".placeble,.placeble-cpu").remove();
     if ((turn == "player" && player_color == "black") || (turn == "cpu" && player_color == "white")) {
         for (let i = 1; i < 9; i++) {
             for (let j = 1; j < 9; j++) {
@@ -23,7 +23,11 @@ function placeble() { // 石を置ける場所を表示
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "white") { //対象
                             ;
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "black") {
-                            $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            if (turn == "player") {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            } else {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble-cpu">')
+                            }
                             break
                         }
                         k -= 1
@@ -47,7 +51,11 @@ function placeble() { // 石を置ける場所を表示
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "white") { //対象
                             ;
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "black") {
-                            $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            if (turn == "player") {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            } else {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble-cpu">')
+                            }
                             break
                         }
                         l -= 1
@@ -69,7 +77,11 @@ function placeble() { // 石を置ける場所を表示
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "white") { //対象
                             ;
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "black") {
-                            $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            if (turn == "player") {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            } else {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble-cpu">')
+                            }
                             break
                         }
                         k += 1
@@ -93,7 +105,11 @@ function placeble() { // 石を置ける場所を表示
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "white") { //対象
                             ;
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "black") {
-                            $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            if (turn == "player") {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            } else {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble-cpu">')
+                            }
                             break
                         }
                         k -= 1
@@ -116,7 +132,11 @@ function placeble() { // 石を置ける場所を表示
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "white") { //対象
                             ;
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "black") {
-                            $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            if (turn == "player") {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            } else {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble-cpu">')
+                            }
                             break
                         }
                         k += 1
@@ -139,7 +159,11 @@ function placeble() { // 石を置ける場所を表示
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "white") { //対象
                             ;
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "black") {
-                            $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            if (turn == "player") {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            } else {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble-cpu">')
+                            }
                             break
                         }
                         k -= 1
@@ -163,7 +187,11 @@ function placeble() { // 石を置ける場所を表示
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "white") { //対象
                             ;
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "black") {
-                            $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            if (turn == "player") {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            } else {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble-cpu">')
+                            }
                             break
                         }
                         l += 1
@@ -186,7 +214,11 @@ function placeble() { // 石を置ける場所を表示
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "white") { //対象
                             ;
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "black") {
-                            $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            if (turn == "player") {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            } else {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble-cpu">')
+                            }
                             break
                         }
                         k += 1
@@ -219,7 +251,11 @@ function placeble() { // 石を置ける場所を表示
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "black") { //対象
                             ;
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "white") {
-                            $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            if (turn == "player") {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            } else {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble-cpu">')
+                            }
                             break
                         }
                         k -= 1
@@ -243,7 +279,11 @@ function placeble() { // 石を置ける場所を表示
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "black") { //対象
                             ;
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "white") {
-                            $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            if (turn == "player") {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            } else {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble-cpu">')
+                            }
                             break
                         }
                         l -= 1
@@ -265,7 +305,11 @@ function placeble() { // 石を置ける場所を表示
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "black") { //対象
                             ;
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "white") {
-                            $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            if (turn == "player") {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            } else {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble-cpu">')
+                            }
                             break
                         }
                         k += 1
@@ -289,7 +333,11 @@ function placeble() { // 石を置ける場所を表示
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "black") { //対象
                             ;
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "white") {
-                            $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            if (turn == "player") {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            } else {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble-cpu">')
+                            }
                             break
                         }
                         k -= 1
@@ -312,7 +360,11 @@ function placeble() { // 石を置ける場所を表示
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "black") { //対象
                             ;
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "white") {
-                            $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            if (turn == "player") {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            } else {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble-cpu">')
+                            }
                             break
                         }
                         k += 1
@@ -335,7 +387,11 @@ function placeble() { // 石を置ける場所を表示
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "black") { //対象
                             ;
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "white") {
-                            $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            if (turn == "player") {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            } else {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble-cpu">')
+                            }
                             break
                         }
                         k -= 1
@@ -359,7 +415,11 @@ function placeble() { // 石を置ける場所を表示
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "black") { //対象
                             ;
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "white") {
-                            $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            if (turn == "player") {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            } else {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble-cpu">')
+                            }
                             break
                         }
                         l += 1
@@ -382,7 +442,11 @@ function placeble() { // 石を置ける場所を表示
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "black") { //対象
                             ;
                         } else if ($("#" + (k) + "-" + (l)).attr("class") == "white") {
-                            $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            if (turn == "player") {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble">')
+                            } else {
+                                $("#" + (j) + "-" + (i)).html('<img src="./img/placeble.png" class="placeble-cpu">')
+                            }
                             break
                         }
                         k += 1
