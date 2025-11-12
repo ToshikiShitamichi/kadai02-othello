@@ -99,31 +99,31 @@ function place_stone(j, i) {
     turn_change();
 }
 
-// 1.先攻後攻決め
-// $("body").addClass("remove-scrolling");
-// $(".content").hide();
-// $(".start button").on("click", function () {
-//     $(".start").fadeOut(1000);
-//     $(".content").delay(1000).fadeIn(500);
-//     $("body").removeClass("remove-scrolling");
+1.先攻後攻決め
+$("body").addClass("remove-scrolling");
+$(".content").hide();
+$(".start button").on("click", function () {
+    $(".start").fadeOut(1000);
+    $(".content").delay(1000).fadeIn(500);
+    $("body").removeClass("remove-scrolling");
 
-//     turn = $(this).attr("id")
-//     if (turn == "cpu") {
-//         player_color = "black"
-//     } else {
-//         player_color = "white"
-//     }
-//     turn_change();
+    turn = $(this).attr("id")
+    if (turn == "cpu") {
+        player_color = "black"
+    } else {
+        player_color = "white"
+    }
+    turn_change();
 
-//     // 2.石を置ける箇所表示
-//     placeble()
-// });
+    // 2.石を置ける箇所表示
+    placeble()
+});
 
 // テスト
-turn = "cpu"
-player_color = "black"
-turn_change();
-placeble()
+// turn = "cpu"
+// player_color = "black"
+// turn_change();
+// placeble()
 
 // 3.石を置く
 $(document).on("click", ".placeble", function () {
