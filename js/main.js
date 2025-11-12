@@ -99,7 +99,7 @@ function place_stone(j, i) {
     turn_change();
 }
 
-1.先攻後攻決め
+// 1.先攻後攻決め
 $("body").addClass("remove-scrolling");
 $(".content").hide();
 $(".start button").on("click", function () {
